@@ -3,7 +3,10 @@ from .views import (
     InstrumentListCreateAPIView,
     InstrumentDetailAPIView,
     OrderListCreateAPIView,
-    OrderDetailAPIView
+    OrderDetailAPIView,
+    AlbumListView,
+    AlbumDetailView,
+    AdminOnlyView
 )
 
 urlpatterns = [
@@ -14,4 +17,11 @@ urlpatterns = [
     # Order routes
     path('orders/', OrderListCreateAPIView.as_view(), name='order-list-create'),
     path('orders/<int:pk>/', OrderDetailAPIView.as_view(), name='order-detail'),
+
+    # Album routes
+    path('albums/', AlbumListView.as_view(), name='album-list'),
+    path('albums/<int:pk>/', AlbumDetailView.as_view(), name='album-detail'),
+
+    # Admin-only route
+    path('admin-only/', AdminOnlyView.as_view(), name='admin-only'),
 ]
